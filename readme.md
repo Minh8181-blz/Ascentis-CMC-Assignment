@@ -19,6 +19,7 @@ This is the repository of electric register assignment project. The following pl
   - Execute the **db.sql** script file at the root folder of repository on the instance
 ### Step 2.1: Run web application
   - Open the solution with Visual Studio 2019
+  - Replace the connection string in ***appsettings.json*** with your database's connection string
   - Publish the ***DeviceManager.Presentation.Web*** project as FolderProfile
   - Navigate to the target folder, open command window and submit command 
     >dotnet DeviceManager.Presentation.Web.dll
@@ -26,5 +27,6 @@ This is the repository of electric register assignment project. The following pl
   - Access url https://localhost:5001/ from your browser
 ### Step 2.2: Run console application
   - Open the solution with Visual Studio 2019
+  - Replace the connection string in ***appsettings.json*** with your database's connection string
   - Publish the ***DeviceManager.Presentation.ConsoleApp*** project as FolderProfile
   - Navigate to the target folder and execute **DeviceManager.Presentation.ConsoleApp.exe**
