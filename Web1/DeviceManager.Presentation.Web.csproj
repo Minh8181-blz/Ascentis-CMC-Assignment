@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>fd6e6482-175b-4ff9-93ea-27c6a424d9e6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeviceManager.Business\DeviceManager.Business.csproj" />
+    <ProjectReference Include="..\DeviceManager.DataAccess\DeviceManager.DataAccess.csproj" />
+    <ProjectReference Include="..\DeviceManager.Utilities\DeviceManager.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

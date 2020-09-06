@@ -1,0 +1,21 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#frmRegisterDevice').submit(function (e) {
+            var form = this;
+            e.preventDefault();
+            if (!$(form).valid())
+                return;
+
+            $.ajax({
+                url: $(form).attr('action'),
+                type: $(form).attr('method'),
+                data: $(form).serialize(),
+                success: function (msg) {
+                    console.log(msg);
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,92 @@
+﻿@using DeviceManager.Web.Models
+@using DeviceManager.Business.Models
+@model GatewayViewModel
+
+@{
+    ViewData["Title"] = "Register gateway";
+    var gateways = ViewBag.Gateways as IEnumerable<GatewayDto>;
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-3">@ViewData["Title"]</h1>
+</div>
+
+
+<form asp-controller="Home" asp-action="RegisterGateway" method="post" id="frmRegGateway" class="col-sm-6 offset-sm-3 mb-3">
+    <div class="form-group row">
+        <label for="SerialNumber" class="col-sm-4 col-form-label">Serial number</label>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(x => x.SerialNumber, new { @class = "form-control" })
+            <div>
+                @Html.ValidationMessageFor(x => x.SerialNumber, null, new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="SerialNumber" class="col-sm-4 col-form-label">Firmware Version</label>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(x => x.FirmwareVersion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FirmwareVersion, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="SerialNumber" class="col-sm-4 col-form-label">State</label>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(x => x.State, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.State, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="SerialNumber" class="col-sm-4 col-form-label">IP</label>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(x => x.IP, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.IP, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="SerialNumber" class="col-sm-4 col-form-label">Port</label>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(x => x.Port, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Port, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="text-center mb-2">
+        <div id="msg"></div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
+
+<table id="tblGateway" class="table @(gateways != null && gateways.Any() ? "" : "d-none")">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Serial number</th>
+            <th scope="col">Firmware version</th>
+            <th scope="col">State</th>
+            <th scope="col">IP</th>
+            <th scope="col">Port</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (gateways != null && gateways.Any())
+        {
+            @foreach (var device in gateways)
+            {
+                <tr>
+                    <th scope="row">@device.Id</th>
+                    <td>@device.SerialNumber</td>
+                    <td>@device.FirmwareVersion</td>
+                    <td>@device.State</td>
+                    <td>@device.IP</td>
+                    <td>@device.Port</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @await Html.PartialAsync("~/Views/Shared/_ValidationScriptsPartial.cshtml")
+}
