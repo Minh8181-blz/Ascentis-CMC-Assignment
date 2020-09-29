@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  devicemanager.presentation.web:
+    image: ${DOCKER_REGISTRY-}devicemanagerpresentationweb
+    build:
+      context: .
+      dockerfile: Web1/Dockerfile
+    ports:
+    - "8080:80"
+    depends_on:
+        - devicemanager.database
+  devicemanager.database:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+        SA_PASSWORD: "somepassword"
+        ACCEPT_EULA: "Y"
