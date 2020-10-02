@@ -15,3 +15,9 @@ services:
     environment:
         SA_PASSWORD: "somePassword!@#123"
         ACCEPT_EULA: "Y"
+    ports:
+    - "14330:1433"
+    volumes:
+    - devicemgrdata:/var/opt/mssql
+volumes:
+  devicemgrdata:

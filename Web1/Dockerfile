@@ -22,5 +22,5 @@ RUN dotnet publish "DeviceManager.Presentation.Web.csproj" -c Release -o /app/pu
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-RUN dotnet dev-certs https --trust
+#RUN dotnet dev-certs https --trust
 ENTRYPOINT ["dotnet", "DeviceManager.Presentation.Web.dll"]
